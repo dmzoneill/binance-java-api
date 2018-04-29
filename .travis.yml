@@ -1,15 +1,18 @@
 language: java
 sudo: required
-  
-notifications:
-    webhooks: https://www.travisbuddy.com/?insertMode=update
-    
+
 before_script:
   - mvn dependency:sources
   - mvn dependency:resolve -Dclassifier=javadoc
+  - mvn dependency:resolve -Dclassifier=sources
   
 script:
   - javac $(find . -name "*.java")
 
 branches:
   only: master
+  
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
