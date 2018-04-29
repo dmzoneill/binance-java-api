@@ -3,6 +3,9 @@ sudo: required
   
 notifications:
     webhooks: https://www.travisbuddy.com/?insertMode=update
+    
+before_script:
+  - mvn install
 
 script:
   - javac $(find . -name "*.java")
