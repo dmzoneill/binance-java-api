@@ -1,0 +1,11 @@
+language: java
+sudo: required
+  
+notifications:
+    webhooks: https://www.travisbuddy.com/?insertMode=update
+
+script:
+  - javac $(find . -name "*.java")
+
+branches:
+  only: master
